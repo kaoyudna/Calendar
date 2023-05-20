@@ -1,0 +1,13 @@
+div.container
+  div.row
+    div.col-lg-8.mx-auto.text-center.bg-warning.mb-3.rounded
+      - if resource.errors.any?
+        #error_explanation[data-turbo-cache="false"]
+      
+        h2
+          = I18n.t("errors.messages.not_saved",
+                    count: resource.errors.count,
+                            resource: resource.class.model_name.human.downcase)
+        - resource.errors.full_messages.each do |message|
+          li
+            = message
