@@ -1,0 +1,19 @@
+div.container
+  div.row
+    div.col-md-12.mx-auto
+      = week_calendar events: @schedules do |date, schedules|
+        div.d-flex.justify-content-between
+          = date.day
+          = link_to new_schedule_path(default_date: date), class: "text-info"
+            i.fas.fa-plus-square
+        - schedules.each do |schedule|
+          - bg_color = "bg-success"
+          - if schedule.status == 1
+            - bg_color = "bg-warning"
+          - if schedule.status == 2
+            - bg_color = "bg-secondary"
+          - else
+            - bg_color = "bg-success"
+          div class="card pl-1 pr-1 #{bg_color}"
+            small
+              = link_to schedule.title, edit_schedule_path(schedule), class: "text-light"

@@ -1,0 +1,20 @@
+div.container
+  div.row
+    div.col-lg-8.mx-auto
+      h2.text-center
+        | スケジュール作成
+      = form_with model: @schedule, loclal: true do |f|
+        div.form-group
+          = f.label :title
+          = f.text_field :title, class: "form-control"
+        div.form-group
+          = f.label :task
+          = f.text_field :task, class: "form-control"
+        div.form-group
+          = f.label :start_time
+          = f.datetime_select :start_time, default: @default_date
+        div.form-group
+          = f.label :end_time
+          = f.datetime_select :end_time, default: @default_date
+        div.form-group
+          = f.submit

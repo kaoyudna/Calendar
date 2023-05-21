@@ -1,7 +1,7 @@
 class CreateSchedules < ActiveRecord::Migration[6.1]
   def change
     create_table :schedules do |t|
-      t.references :user_id, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true
       t.string :title, null: false
       t.string :task
       t.string :remaining
