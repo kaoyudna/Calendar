@@ -1,0 +1,9 @@
+div.container
+  div.row
+    div.col-lg-12.mx-auto.text-center
+      h1
+        | ようこそ Calendar へ !
+    div.col-lg-6.mx-auto
+      = link_to "ログイン", new_user_session_path, class: "btn btn-primary btn-block btn-lg mb-3"
+      = link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "btn btn-info btn-block btn-lg mb-3"
+      = link_to "新規登録", new_user_registration_path, class: "btn btn-success btn-block btn-lg mb-3"
