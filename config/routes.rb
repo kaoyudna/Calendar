@@ -5,5 +5,11 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
   root "homes#top"
+  resources :schedules, except:[:show] do
+    collection do
+      get 'month'
+      get 'week'
+    end
+  end
   
 end
