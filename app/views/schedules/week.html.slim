@@ -30,3 +30,7 @@ div.container
                   = schedule.start_time.strftime("%H:%M")
                   | 〜
                   = schedule.end_time.strftime("%H:%M")
+                  br
+                  | 予定学習時間
+                  br
+                  = schedule.total_schedule_time(schedule.start_time, schedule.end_time)

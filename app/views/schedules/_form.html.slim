@@ -13,7 +13,7 @@
     = f.label :end_time
     br
     = f.datetime_select :end_time, default: @default_date
-  - if action_name == 'edit'
+  - if action_name == 'edit' || action_name == 'update'
     div.form-group
       = f.label :remaining
       = f.text_field :remaining, class: "form-control"
@@ -24,6 +24,6 @@
     = f.submit class: "btn btn-success btn-block"
 
 div.col-lg-6.mx-auto.mt-4
-  - if action_name == 'edit'
+  - if action_name == 'edit' || action_name == 'update'
     = link_to "この予定を削除", schedule_path(schedule), method: :delete, data: { confirm: "予定を削除してもよろしいですか" }, class: "btn btn-danger btn-block"
-  = link_to "戻る", request.referer, class: "btn btn-info btn-block mt-4"
+  = link_to "戻る", session[:previous_url], class: "btn btn-info btn-block mt-4"
