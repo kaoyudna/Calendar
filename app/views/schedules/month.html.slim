@@ -10,11 +10,12 @@ div.container
           - bg_color = "bg-success"
           - if schedule.status == 1
             - bg_color = "bg-warning"
-          - if schedule.status == 2
+          - elsif schedule.status == 2
             - bg_color = "bg-secondary"
           - else
             - bg_color = "bg-success"
-          div class="card pl-1 pr-1 #{bg_color}"
-            small
-              = link_to schedule.title, edit_schedule_path(schedule), class: "text-light"
-         
+          = link_to edit_schedule_path(schedule), class: "text-decoration-none" do
+            div class="card pl-1 pr-1 #{bg_color}"
+              small.text-light
+                = schedule.title
+= current_user.id

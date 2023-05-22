@@ -1,10 +1,9 @@
 .simple-calendar
   .calendar-heading.text-center
-    span.calendar-title.font-weight-bold
-      h1
-        = start_date.year
-        |年
-        = t('date.month_names')[start_date.month]
+    h1
+      = start_date.year
+      |年
+      = t('date.month_names')[start_date.month]
   table.table
     thead.bg-secondary.text-light
       tr
@@ -21,6 +20,6 @@
               - else
                 - passed_block.call day, sorted_events.fetch(day, [])
   div.text-center
-    = link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: "btn btn-info btn-sm"
+    = link_to t('simple_calendar.previous', default: '先月へ'), calendar.url_for_previous_view, class: "btn btn-info btn-sm"
     = link_to "週間カレンダー", week_schedules_path, class: "btn btn-success btn-sm mr-2 ml-2"
-    = link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: "btn btn-info btn-sm"
+    = link_to t('simple_calendar.next', default: '来月へ'), calendar.url_for_next_view, class: "btn btn-info btn-sm"

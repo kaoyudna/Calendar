@@ -4,23 +4,4 @@ div.container
       h2.text-center
         | スケジュール編集
       = form_with model: @schedule, loclal: true do |f|
-        div.form-group
-          = f.label :title
-          = f.text_field :title, class: "form-control"
-        div.form-group
-          = f.label :task
-          = f.text_field :task, class: "form-control"
-        div.form-group
-          = f.label :start_time
-          = f.datetime_select :start_time, default: @default_date
-        div.form-group
-          = f.label :end_time
-          = f.datetime_select :end_time, default: @default_date
-        div.form-group
-          = f.label :remaining
-          = f.text_field :remaining, class: "form-control"
-        div.form-group
-          = f.label :status
-          = f.select :status, [["未着手", 0],["途中", 1],["完了", 2]]
-        div.form-group
-          = f.submit
+        = render "form", schedule: @schedule

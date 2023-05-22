@@ -10,10 +10,23 @@ div.container
           - bg_color = "bg-success"
           - if schedule.status == 1
             - bg_color = "bg-warning"
-          - if schedule.status == 2
+          - elsif schedule.status == 2
             - bg_color = "bg-secondary"
           - else
             - bg_color = "bg-success"
-          div class="card pl-1 pr-1 #{bg_color}"
-            small
-              = link_to schedule.title, edit_schedule_path(schedule), class: "text-light"
+          = link_to edit_schedule_path(schedule), class: "text-decoration-none" do
+            div class="card #{bg_color} text-light mb-2"
+              div.card-header.p-1
+                small.m-0
+                  = schedule.title
+              div.card-body.p-1
+                small
+                  - if schedule.status == 1
+                    = schedule.remaining
+                  - else
+                     = schedule.task
+              div.card-footer.p-1
+                small
+                  = schedule.start_time.strftime("%H:%M")
+                  | 〜
+                  = schedule.end_time.strftime("%H:%M")
