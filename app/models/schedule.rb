@@ -1,5 +1,7 @@
 class Schedule < ApplicationRecord
+
   belongs_to :user
+  has_one :achievement, dependent: :destroy
 
   validates :title, presence: true
 
@@ -25,4 +27,5 @@ class Schedule < ApplicationRecord
       "0分"
     end
   end
+
 end

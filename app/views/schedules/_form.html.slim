@@ -5,15 +5,24 @@
   div.form-group
     = f.label :task
     = f.text_field :task, class: "form-control"
-  div.form-group
-    = f.label :start_time
-    br
-    = f.datetime_select :start_time, default: @default_date
-  div.form-group
-    = f.label :end_time
-    br
-    = f.datetime_select :end_time, default: @default_date
+  div.d-flex
+    div.form-group.mr-5
+      div.mb-2
+        label.mb-0 開始予定時刻
+        br
+        = f.datetime_select :start_time, default: @default_date
+      div
+        label.mb-0 終了予定時刻
+        br
+        = f.datetime_select :end_time, default: @default_date
   - if action_name == 'edit' || action_name == 'update'
+    div
+      - if schedule.achievement.end_time == nil
+        = link_to "学習終了", schedule_achievements_path(schedule), method: :patch, class: "btn btn-primary"
+      - elsif schedule.achievement.exists?
+        = link_to "編集", schedule_achievements_path(schedule), method: :post, class: "btn btn-success"
+      - else
+        = link_to "学習開始", schedule_achievements_path(schedule), method: :post, class: "btn btn-success"
     div.form-group
       = f.label :remaining
       = f.text_field :remaining, class: "form-control"

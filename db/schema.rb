@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_21_020728) do
+ActiveRecord::Schema.define(version: 2023_05_22_112953) do
+
+  create_table "achievements", force: :cascade do |t|
+    t.integer "schedule_id", null: false
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["schedule_id"], name: "index_achievements_on_schedule_id"
+  end
 
   create_table "schedules", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -37,5 +46,6 @@ ActiveRecord::Schema.define(version: 2023_05_21_020728) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "achievements", "schedules"
   add_foreign_key "schedules", "users"
 end
