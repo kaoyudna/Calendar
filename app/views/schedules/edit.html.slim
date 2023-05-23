@@ -4,4 +4,4 @@ div.container
       h2.text-center
         | スケジュール編集
       = form_with model: @schedule, loclal: true do |f|
-        = render "form", schedule: @schedule
+        = render "form", schedule: @schedule, achievement: @achievement

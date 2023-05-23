@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root "homes#top"
   resources :schedules, except:[:show] do
     resource :achievements, only:[:create, :update]
+    patch 'finish' => 'achievements#finish'
     collection do
       get 'month'
       get 'week'

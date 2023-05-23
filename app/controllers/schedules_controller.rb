@@ -29,6 +29,7 @@ class SchedulesController < ApplicationController
 
   def edit
     @schedule = Schedule.find(params[:id])
+    @achievement = @schedule.achievement
     # 遷移元のセッションを保存
     session[:previous_url] = request.referer
   end
