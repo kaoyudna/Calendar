@@ -1,0 +1,7 @@
+div.container
+  div.row
+    div.col-lg-8.mx-auto
+      h2.text-center
+        | スケジュール編集
+      = form_with model: @schedule, loclal: true do |f|
+        = render "form", schedule: @schedule, achievement: @achievement

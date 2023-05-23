@@ -1,0 +1,21 @@
+div.container
+  div.row
+    div.col-md-12.mx-auto
+      = month_calendar events: @schedules do |date, schedules|
+        div.d-flex.justify-content-between
+          = date.day
+          = link_to new_schedule_path(default_date: date), class: "text-info"
+            i.fas.fa-plus-square
+        - schedules.each do |schedule|
+          - bg_color = "bg-success"
+          - if schedule.status == 1
+            - bg_color = "bg-warning"
+          - elsif schedule.status == 2
+            - bg_color = "bg-secondary"
+          - else
+            - bg_color = "bg-success"
+          = link_to edit_schedule_path(schedule), class: "text-decoration-none" do
+            div class="card p-1 #{bg_color}"
+              small.text-light
+                = schedule.title
+              = link_to "学習時間打刻", schedule_achievements_path(schedule), class: "btn btn-primary p-0 pr-1 pl-2"

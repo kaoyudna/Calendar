@@ -9,15 +9,6 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    header.mb-3
-      nav.navbar.navbar-expand-lg.navbar-dark.bg-secondary
-        div.container
-          a.navbar-brand href="/"
-            h2.font-weight-bold Calendar
-          button.navbar-toggler type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"
-            span.navbar-toggler-icon
-          div.collapse.navbar-collapse#navbarNavDropdown
-            ul.navbar-nav.ml-auto
-              - if user_signed_in?
-                li = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-white"
+    = render 'layouts/header'
+    = render 'shared/flash_message'
     = yield

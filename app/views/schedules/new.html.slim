@@ -1,0 +1,7 @@
+= render "devise/shared/error_messages", resource: @schedule
+div.container
+  div.row
+    div.col-lg-8.mx-auto
+      h2.text-center
+        | スケジュール作成
+      = render "form", schedule: @schedule

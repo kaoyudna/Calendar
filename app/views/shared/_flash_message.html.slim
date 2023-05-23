@@ -1,0 +1,6 @@
+- flash.each do |key, value|
+  div.container
+    div.col-lg-10.mx-auto
+      div class="alert alert-#{bootstrap_alert(key)} alert-dismissible fade show text-center shadow"
+        span = value
+        button.close type="button" data-dismiss="alert" aria-label="Close" ×
