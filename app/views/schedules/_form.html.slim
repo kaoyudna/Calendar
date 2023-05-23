@@ -5,7 +5,7 @@
   div.form-group
     = f.label :task
     = f.text_field :task, class: "form-control"
-  div.form-group.mr-5
+  div.form-group
     div.mb-2
       label.mb-0 開始予定時刻
       br
@@ -15,20 +15,6 @@
       br
       = f.datetime_select :end_time, default: @default_date
   - if action_name == 'edit' || action_name == 'update'
-    div.form-group
-      - if schedule.achievement.blank?
-        = link_to "学習開始", schedule_achievements_path(schedule), method: :post, class: "btn btn-success"
-      - elsif schedule.achievement.end_time.blank?
-        span
-          | 開始時刻：
-          = schedule.achievement.start_time.strftime("%H時%M分")
-        br
-        = link_to "学習終了", schedule_finish_path(schedule), method: :patch, class: "btn btn-primary"
-      - else
-        = form_with model: [schedule, achievement], url: schedule_achievements_path(schedule), method: :patch do |f|
-          = f.datetime_select :start_time
-          = f.datetime_select :end_time
-          = f.submit
     div.form-group
       = f.label :remaining
       = f.text_field :remaining, class: "form-control"

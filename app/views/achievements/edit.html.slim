@@ -1,0 +1,17 @@
+div.container
+  div.row
+    div.col-lg-8.mx-auto.text-center
+      h2.text-center
+        | 学習実績編集
+      = form_with model: [@schedule, @achievement], url: schedule_achievements_path(@schedule), method: :patch do |f|
+        div.form-group
+          div.mb-2
+            label.mb-0 開始時刻
+            br
+            = f.datetime_select :start_time
+          div
+            label.mb-0 終了時刻
+            br
+            = f.datetime_select :end_time
+        div.form-group
+          = f.submit class: "btn btn-success"

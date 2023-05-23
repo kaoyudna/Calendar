@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2023_05_22_112953) do
     t.integer "schedule_id", null: false
     t.datetime "start_time"
     t.datetime "end_time"
+    t.integer "total_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["schedule_id"], name: "index_achievements_on_schedule_id"

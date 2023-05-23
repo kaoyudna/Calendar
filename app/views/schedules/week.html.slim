@@ -14,7 +14,7 @@ div.container
             - bg_color = "bg-secondary"
           - else
             - bg_color = "bg-success"
-          = link_to edit_schedule_path(schedule), class: "text-decoration-none" do
+          = link_to edit_schedule_path(schedule), class: "text-decoration-none text-white" do
             div class="card #{bg_color} text-light mb-2"
               div.card-header.p-1
                 small.m-0
@@ -31,6 +31,10 @@ div.container
                   | 〜
                   = schedule.end_time.strftime("%H:%M")
                   br
-                  | 予定学習時間
-                  br
+                  | 予定：
                   = schedule.total_schedule_time(schedule.start_time, schedule.end_time)
+                  - if schedule.achievement&.total_time.present?
+                    br
+                    | 実績：
+                    = schedule.achievement.total_engraving_time
+              = link_to "学習時間打刻", schedule_achievements_path(schedule), class: "btn btn-primary p-0 pr-1 pl-2"

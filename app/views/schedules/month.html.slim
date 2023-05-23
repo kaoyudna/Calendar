@@ -15,7 +15,7 @@ div.container
           - else
             - bg_color = "bg-success"
           = link_to edit_schedule_path(schedule), class: "text-decoration-none" do
-            div class="card pl-1 pr-1 #{bg_color}"
+            div class="card p-1 #{bg_color}"
               small.text-light
                 = schedule.title
-= current_user.id
+              = link_to "学習時間打刻", schedule_achievements_path(schedule), class: "btn btn-primary p-0 pr-1 pl-2"

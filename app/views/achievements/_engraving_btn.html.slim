@@ -1,0 +1,26 @@
+- if schedule.achievement.blank?
+  = link_to "学習開始", schedule_achievements_path(schedule), method: :post, remote: true, class: "btn btn-success btn-lg"
+- elsif schedule.achievement.end_time.blank?
+  h3
+    table.table.table-borderless
+      tr
+        th 開始時刻
+        th
+          = schedule.achievement.start_time.strftime("%H時%M分")
+  = link_to "学習終了", schedule_finish_path(schedule), method: :patch, remote: true, class: "btn btn-primary btn-lg mt-4"
+- else
+  h3
+    table.table.table-borderless
+      tr
+        th 学習期間
+        th
+          = schedule.achievement.start_time.strftime("%H時%M分")
+          | 〜
+          = schedule.achievement.end_time.strftime("%H時%M分")
+      tr
+        th 合計学習時間
+        th
+          = schedule.achievement.total_engraving_time
+  = link_to "実績編集", edit_schedule_achievements_path(schedule), class: "btn btn-secondary btn-lg mt-4"
+div.mt-5
+  = link_to "カレンダーへ", month_schedules_path, class: "btn btn-info"

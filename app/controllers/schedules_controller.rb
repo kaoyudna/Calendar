@@ -21,7 +21,7 @@ class SchedulesController < ApplicationController
     @schedule.user_id = current_user.id
     if @schedule.save
       # newの1つ前のページへ遷移
-      redirect_to session[:previous_url]
+      redirect_to session[:previous_url], notice: "予定を作成しました"
     else
       render :new
     end
@@ -29,7 +29,6 @@ class SchedulesController < ApplicationController
 
   def edit
     @schedule = Schedule.find(params[:id])
-    @achievement = @schedule.achievement
     # 遷移元のセッションを保存
     session[:previous_url] = request.referer
   end
@@ -38,7 +37,7 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.find(params[:id])
     if @schedule.update(schedule_params)
       # editの1つ前のページへ遷移
-      redirect_to session[:previous_url]
+      redirect_to session[:previous_url], notice: "予定を編集しました"
     else
       render :new
     end
@@ -48,7 +47,7 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.find(params[:id])
     @schedule.destroy
     # editの1つ前のページへ遷移
-    redirect_to session[:previous_url]
+    redirect_to session[:previous_url], notice: "予定を削除しました"
   end
 
 
