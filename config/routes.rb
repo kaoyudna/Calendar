@@ -13,5 +13,6 @@ Rails.application.routes.draw do
       get 'week'
     end
   end
+  get 'achievements/index'
 
 end

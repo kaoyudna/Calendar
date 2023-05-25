@@ -14,6 +14,7 @@ import "bootstrap";
 import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
 import "chartkick/chart.js"
+import "calendar.scss"
 
 Rails.start()
 Turbolinks.start()

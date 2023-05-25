@@ -1,5 +1,9 @@
 class AchievementsController < ApplicationController
 
+  def index
+    @achievements = Achievement.all
+  end
+
   def show
     @schedule = Schedule.find(params[:schedule_id])
     # 遷移元のセッションを保存

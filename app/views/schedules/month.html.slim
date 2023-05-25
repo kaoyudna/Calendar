@@ -18,4 +18,5 @@ div.container
             div class="card p-1 #{bg_color}"
               small.text-light
                 = schedule.title
-              = link_to "学習時間打刻", schedule_achievements_path(schedule), class: "btn btn-primary p-0 pr-1 pl-2"
+              = link_to "学習時間打刻", schedule_achievements_path(schedule), class: "btn btn-primary p-0 pr-1 pl-1"
+    = link_to "実績確認", achievements_index_path, class: "btn btn-primary btn-sm mx-auto mt-2"
