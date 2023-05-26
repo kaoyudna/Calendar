@@ -4,6 +4,9 @@ class Schedule < ApplicationRecord
   has_one :achievement, dependent: :destroy
 
   validates :title, presence: true, length: { in: 1..50 }
+  validates :task, length: { maximum: 50 }
+  validates :remaining, length: { maximum: 50 }
+
 
   # 学習時間の合計を求めるメソッド
   def total_schedule_time(start_time, end_time)
