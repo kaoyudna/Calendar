@@ -1,0 +1,17 @@
+div.container
+  div.row
+    div.col-lg-12.mx-auto.text-center
+      h1
+        | ようこそ Calendar へ !
+      p.font-weight-bold.mt-5.mb-5
+        | このアプリケーションは日々の学習計画を立て <br>
+        | 効率よく学習を進めることを目的としたアプリケーションです。 <br>
+        | また、日々の学習状況を記録することで自身の計画の見直し、確認を行うことができます。<br>
+        | 日々の計画を立て、目標を達成しましょう！
+      = image_tag 'month.png', class: "border border-secondary rounded mb-4", style: "width: 900px"
+      = image_tag 'week.png', class: "border border-secondary rounded  mb-4", style: "width: 900px"
+      = image_tag 'edit.png', class: "border border-secondary rounded  mb-4", style: "width: 900px"
+    div.col-lg-6.mx-auto
+      = link_to "ログイン", new_user_session_path, class: "btn btn-primary btn-block btn-lg mb-3"
+      = link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "btn btn-info btn-block btn-lg mb-3"
+      = link_to "新規登録", new_user_registration_path, class: "btn btn-success btn-block btn-lg mb-3"

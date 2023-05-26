@@ -1,0 +1,8 @@
+div.container
+  div.col-md-12.mx-auto
+    = month_calendar events: @achievements do |date, achievements|
+      div.d-flex.justify-content-between
+        = date.day
+      - achievements.each do |achievement|
+        div class="card p-1 bg-success text-light text-center"
+          = achievement.total_engraving_time

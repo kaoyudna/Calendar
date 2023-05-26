@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    models:
+      schedule: スケジュール
+    attributes:
+      schedule:
+        title: タイトル
+        task: 予定
+        start_time: 開始日時
+        end_time: 終了日時
+        remaining: 残りの予定
+        status: 進行状況
