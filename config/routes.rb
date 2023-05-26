@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
   root "homes#top"
-  resources :schedules, except:[:show] do
+  resources :schedules, except:[:show, :index] do
     resource :achievements, only:[:create, :update, :edit, :show]
     patch 'finish' => 'achievements#finish'
     collection do
