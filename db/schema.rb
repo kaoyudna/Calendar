@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2023_05_22_112953) do
 
   create_table "achievements", force: :cascade do |t|
+    t.integer "user_id", null: false
     t.integer "schedule_id", null: false
     t.datetime "start_time"
     t.datetime "end_time"
@@ -20,6 +21,7 @@ ActiveRecord::Schema.define(version: 2023_05_22_112953) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["schedule_id"], name: "index_achievements_on_schedule_id"
+    t.index ["user_id"], name: "index_achievements_on_user_id"
   end
 
   create_table "schedules", force: :cascade do |t|
@@ -48,5 +50,6 @@ ActiveRecord::Schema.define(version: 2023_05_22_112953) do
   end
 
   add_foreign_key "achievements", "schedules"
+  add_foreign_key "achievements", "users"
   add_foreign_key "schedules", "users"
 end

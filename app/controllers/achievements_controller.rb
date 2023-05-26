@@ -1,7 +1,7 @@
 class AchievementsController < ApplicationController
 
   def index
-    @achievements = Achievement.all.where.not(end_time: nil)
+    @achievements = current_user.achievements.all.where.not(end_time: nil)
   end
 
   def show
@@ -14,7 +14,7 @@ class AchievementsController < ApplicationController
     start_time = Time.zone.now
     @schedule = Schedule.find(params[:schedule_id])
     # schedule.achievement.create(start_time: start_time)だとエラーが発生する
-    Achievement.create(start_time: start_time, schedule_id: @schedule.id)
+    Achievement.create(start_time: start_time, schedule_id: @schedule.id, user_id: current_user.id)
   end
 
   def finish
@@ -48,5 +48,5 @@ class AchievementsController < ApplicationController
   def achievement_params
     params.require(:achievement).permit(:start_time, :end_time)
   end
-    
+
 end

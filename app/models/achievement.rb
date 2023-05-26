@@ -1,6 +1,7 @@
 class Achievement < ApplicationRecord
 
   belongs_to :schedule
+  belongs_to :user
 
   # 学習時間の合計を時間及び分単位で表示するメソッド
   def total_engraving_time
