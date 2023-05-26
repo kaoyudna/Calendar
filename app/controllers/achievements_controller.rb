@@ -1,7 +1,7 @@
 class AchievementsController < ApplicationController
 
   def index
-    @achievements = Achievement.all
+    @achievements = Achievement.all.where.not(end_time: nil)
   end
 
   def show
@@ -48,5 +48,5 @@ class AchievementsController < ApplicationController
   def achievement_params
     params.require(:achievement).permit(:start_time, :end_time)
   end
-
+    
 end
