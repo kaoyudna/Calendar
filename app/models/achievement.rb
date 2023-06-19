@@ -1,4 +1,5 @@
 class Achievement < ApplicationRecord
+  include TimeFormatting
 
   belongs_to :schedule
   belongs_to :user
@@ -6,17 +7,7 @@ class Achievement < ApplicationRecord
   # 学習時間の合計を時間及び分単位で表示するメソッド
   def total_engraving_time
     total_time = self.total_time
-    hours = total_time / 3600
-    minutes = total_time % 3600 / 60
-    if hours > 0 && minutes > 0
-      "#{hours}時間#{minutes}分"
-    elsif hours > 0
-      "#{hours}時間"
-    elsif minutes > 0
-      "#{minutes}分"
-    else
-      "0分"
-    end
+    format_time(total_time)
   end
 
   # 学習時間の合計を保存する
