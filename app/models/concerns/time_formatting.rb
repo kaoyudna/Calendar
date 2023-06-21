@@ -1,8 +1,7 @@
 module TimeFormatting
-  extend ActiveSupport::Concern
 
   def format_time(total_time)
-    # total_timeが9000の
+    # total_timeが9000の場合
     # hours = 9000 / 3600
     # hoursは計算上2.5となるが整数型のため小数点は切り捨て
     hours = total_time / 3600
