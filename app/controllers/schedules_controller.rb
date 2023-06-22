@@ -11,6 +11,7 @@ class SchedulesController < ApplicationController
 
   def new
     @schedule = Schedule.new
+    # viewからカレンダーの日付を受け取り日付のセレクトフォームの初期値として渡す
     @default_date = params[:default_date].to_date
     # 遷移元のセッションを保存
     session[:previous_url] = request.referer
